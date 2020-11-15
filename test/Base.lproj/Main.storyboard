@@ -140,7 +140,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzs-XC-LDb">
-                                <rect key="frame" x="47" y="262" width="320" height="48"/>
+                                <rect key="frame" x="47" y="263" width="320" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="ポイント"/>
@@ -171,7 +171,7 @@
         <!--申請-->
         <scene sceneID="Yx7-Of-PkV">
             <objects>
-                <viewController id="vmk-74-5ps" sceneMemberID="viewController">
+                <viewController id="vmk-74-5ps" customClass="FormController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cay-sX-ycH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
