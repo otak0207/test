@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate,UITextViewDelegate {
 
     @IBOutlet weak var clubList: UITextField!
     @IBOutlet weak var pointSelect: UISegmentedControl!
@@ -26,7 +26,10 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //picker情報
         clubPicker.delegate = self
         clubPicker.dataSource = self
+        
+        //text情報
         clubList.inputView = clubPicker
+        commentCtl()
         
         //入力例
         phoneNumber.placeholder = "ハイフン無し電話番号"
@@ -35,6 +38,7 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         phoneNumber.clearButtonMode = UITextField.ViewMode.whileEditing //編集時表示
         //入力タイプ
         phoneNumber.keyboardType = UIKeyboardType.phonePad
+
     }
     
     // UIPickerViewの列の数
@@ -56,5 +60,36 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         clubList.text = club.data[row].name
         clubList.endEditing(true)
+    }
+    
+    //コメントエリア情報
+    func commentCtl(){
+        // ツールバー生成
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        // スタイルを設定
+        toolBar.barStyle = UIBarStyle.default
+        // 画面幅に合わせてサイズを変更
+        toolBar.sizeToFit()
+        // 閉じるボタンを右に配置するためのスペース?
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        // 閉じるボタン
+        let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(FormController.commit))
+        // スペース、閉じるボタンを右側に配置
+        toolBar.items = [spacer, commitButton]
+        // textViewのキーボードにツールバーを設定
+        comment.inputAccessoryView = toolBar
+        
+        //入力タイプ
+        comment.keyboardType = UIKeyboardType.namePhonePad
+        
+        //コメント欄のレイアウト
+        comment.layer.borderColor = UIColor.lightGray.cgColor
+        comment.layer.borderWidth = 1.0
+        comment.layer.cornerRadius = 5.0
+        comment.layer.masksToBounds = true
+    }
+    //入力キーボードの実行押下時(コメントエリア)
+    @objc func commit() {
+        self.view.endEditing(true)
     }
 }
