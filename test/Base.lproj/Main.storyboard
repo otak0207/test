@@ -265,6 +265,12 @@
                         <viewLayoutGuide key="safeArea" id="y7c-YI-QwC"/>
                     </view>
                     <navigationItem key="navigationItem" title="申請" id="2ga-ah-89a"/>
+                    <connections>
+                        <outlet property="clubList" destination="UCk-j1-4iL" id="rRE-eM-CQq"/>
+                        <outlet property="comment" destination="4CG-RH-Kfi" id="h5v-eV-uej"/>
+                        <outlet property="phoneNumber" destination="C85-j3-wzJ" id="qab-na-PJe"/>
+                        <outlet property="pointSelect" destination="ERz-Vi-MHL" id="kSH-om-ZOA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvs-zc-CST" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
