@@ -16,6 +16,7 @@
 		0E648498255835450084C85B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E648497255835450084C85B /* WebViewController.swift */; };
 		0E64849A255953C80084C85B /* ClubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E648499255953C80084C85B /* ClubData.swift */; };
 		0E64849C255A184A0084C85B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E64849B255A184A0084C85B /* LoginController.swift */; };
+		0E6E2F092563E1290020253F /* FormCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6E2F082563E1290020253F /* FormCheckController.swift */; };
 		0E785CC32560B07C0044F9BD /* FormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E785CC22560B07C0044F9BD /* FormController.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		0E648497255835450084C85B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		0E648499255953C80084C85B /* ClubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubData.swift; sourceTree = "<group>"; };
 		0E64849B255A184A0084C85B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		0E6E2F082563E1290020253F /* FormCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCheckController.swift; sourceTree = "<group>"; };
 		0E785CC22560B07C0044F9BD /* FormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 				0E0BC1D02538514700D73528 /* ViewController.swift */,
 				0E648493254AC2E40084C85B /* ClubViewController.swift */,
 				0E785CC22560B07C0044F9BD /* FormController.swift */,
+				0E6E2F082563E1290020253F /* FormCheckController.swift */,
 				0E648497255835450084C85B /* WebViewController.swift */,
 				0E0BC1D22538514700D73528 /* Main.storyboard */,
 				0E0BC1D52538514800D73528 /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E648494254AC2E40084C85B /* ClubViewController.swift in Sources */,
+				0E6E2F092563E1290020253F /* FormCheckController.swift in Sources */,
 				0E0BC1D12538514700D73528 /* ViewController.swift in Sources */,
 				0E0BC1CD2538514700D73528 /* AppDelegate.swift in Sources */,
 				0E648498255835450084C85B /* WebViewController.swift in Sources */,

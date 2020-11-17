@@ -14,9 +14,11 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var pointSelect: UISegmentedControl!
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var comment: UITextView!
+    @IBOutlet weak var sendTool: UIToolbar!
     
     var club = ClubData() //クラブ情報
     var clubPicker = UIPickerView()
+    var point : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +35,15 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         //入力例
         phoneNumber.placeholder = "ハイフン無し電話番号"
-        //クリアボタンボタン
+        
+        //クリアボタン
         clubList.clearButtonMode = UITextField.ViewMode.never //表示させない
         phoneNumber.clearButtonMode = UITextField.ViewMode.whileEditing //編集時表示
         //入力タイプ
         phoneNumber.keyboardType = UIKeyboardType.phonePad
+        
+        //フッター情報
+        footerCtl()
 
     }
     
@@ -62,6 +68,20 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         clubList.endEditing(true)
     }
     
+    //UISegmentedControlが選択された時
+    @IBAction func tapPointSelect(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex{
+        case 0:
+            point = "使用する"
+            break
+        case 1:
+            point = "使用しない"
+            break
+        default:
+            break
+        }
+    }
+    
     //コメントエリア情報
     func commentCtl(){
         // ツールバー生成
@@ -70,11 +90,11 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         toolBar.barStyle = UIBarStyle.default
         // 画面幅に合わせてサイズを変更
         toolBar.sizeToFit()
-        // 閉じるボタンを右に配置するためのスペース?
+        // 決定ボタンを右に配置するためのスペース?
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
-        // 閉じるボタン
+        // 決定ボタン
         let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(FormController.commit))
-        // スペース、閉じるボタンを右側に配置
+        // スペース、決定ボタンを右側に配置
         toolBar.items = [spacer, commitButton]
         // textViewのキーボードにツールバーを設定
         comment.inputAccessoryView = toolBar
@@ -92,4 +112,36 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @objc func commit() {
         self.view.endEditing(true)
     }
+    
+    //フッター情報
+    func footerCtl() {
+        // スタイルを設定
+        sendTool.barStyle = UIBarStyle.default
+        // 画面幅に合わせてサイズを変更
+        sendTool.sizeToFit()
+        // ボタンを配置するためのスペース?
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        // 送信ボタン
+        let sendButton = UIBarButtonItem(title: "送信", style: .done, target: self, action: #selector(FormController.send))
+        // スペース、送信ボタンを中央に配置
+        sendTool.items = [spacer, sendButton, spacer]
+        
+    }
+    //送信ボタン押下時(フッター)
+    @objc func send() {
+        // 次の画面へ移動
+        performSegue(withIdentifier: "sendCheck", sender: nil)
+    }
+    
+    //データの引き継ぎ
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let sendCheck = segue.destination as! FormCheckController
+            
+        sendCheck.clubName = clubList.text
+        sendCheck.point = point
+        sendCheck.phoneNumber = phoneNumber.text
+        sendCheck.freeSpace = comment.text
+    }
+    
+    //以下キーボードのアクション(出現時に画面をスクロール)
 }
