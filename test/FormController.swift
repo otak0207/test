@@ -14,7 +14,6 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var pointSelect: UISegmentedControl!
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var comment: UITextView!
-    @IBOutlet weak var sendTool: UIToolbar!
     
     var club = ClubData() //クラブ情報
     var clubPicker = UIPickerView()
@@ -41,10 +40,6 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         phoneNumber.clearButtonMode = UITextField.ViewMode.whileEditing //編集時表示
         //入力タイプ
         phoneNumber.keyboardType = UIKeyboardType.phonePad
-        
-        //フッター情報
-        footerCtl()
-
     }
     
     // UIPickerViewの列の数
@@ -113,26 +108,11 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.view.endEditing(true)
     }
     
-    //フッター情報
-    func footerCtl() {
-        // スタイルを設定
-        sendTool.barStyle = UIBarStyle.default
-        // 画面幅に合わせてサイズを変更
-        sendTool.sizeToFit()
-        // ボタンを配置するためのスペース?
-        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
-        // 送信ボタン
-        let sendButton = UIBarButtonItem(title: "送信", style: .done, target: self, action: #selector(FormController.send))
-        // スペース、送信ボタンを中央に配置
-        sendTool.items = [spacer, sendButton, spacer]
-        
-    }
-    //送信ボタン押下時(フッター)
-    @objc func send() {
+    //送信ボタン押下時
+    @IBAction func send(_ sender: Any) {
         // 次の画面へ移動
         performSegue(withIdentifier: "sendCheck", sender: nil)
     }
-    
     //データの引き継ぎ
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let sendCheck = segue.destination as! FormCheckController
