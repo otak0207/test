@@ -149,7 +149,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ATRASC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXl-hN-S9f">
-                                <rect key="frame" x="111" y="82" width="153.5" height="47"/>
+                                <rect key="frame" x="111" y="64" width="153.5" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="YJj-Pd-vEy"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="DFMaruGothic-SB-MP-RKSJ-H" family="DFPMaruGothic-SB" pointSize="40"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -188,10 +191,11 @@
                         <constraints>
                             <constraint firstItem="3cL-oD-5El" firstAttribute="centerX" secondItem="NKw-EJ-9U5" secondAttribute="centerX" id="1hD-lD-tVL"/>
                             <constraint firstItem="GXl-hN-S9f" firstAttribute="centerX" secondItem="NKw-EJ-9U5" secondAttribute="centerX" id="5dl-T6-tyU"/>
-                            <constraint firstItem="3cL-oD-5El" firstAttribute="top" secondItem="NKw-EJ-9U5" secondAttribute="top" constant="147" id="8ie-gM-od6"/>
                             <constraint firstItem="7ul-1u-9fF" firstAttribute="top" secondItem="wzs-XC-LDb" secondAttribute="bottom" constant="14" id="GgV-3q-0Ia"/>
                             <constraint firstItem="wzs-XC-LDb" firstAttribute="centerX" secondItem="NKw-EJ-9U5" secondAttribute="centerX" id="SyC-9H-ZWL"/>
                             <constraint firstItem="7ul-1u-9fF" firstAttribute="centerX" secondItem="NKw-EJ-9U5" secondAttribute="centerX" id="dbK-lN-pet"/>
+                            <constraint firstItem="3cL-oD-5El" firstAttribute="top" secondItem="GXl-hN-S9f" secondAttribute="bottom" constant="18" id="erT-D6-GVz"/>
+                            <constraint firstItem="GXl-hN-S9f" firstAttribute="top" secondItem="MfG-R8-rv4" secondAttribute="top" constant="20" id="jJc-Wy-5bf"/>
                             <constraint firstItem="3cL-oD-5El" firstAttribute="top" secondItem="GXl-hN-S9f" secondAttribute="bottom" constant="18" id="l69-SK-0CG"/>
                             <constraint firstItem="wzs-XC-LDb" firstAttribute="top" secondItem="3cL-oD-5El" secondAttribute="bottom" constant="23" id="tWc-Yo-3ET"/>
                         </constraints>
