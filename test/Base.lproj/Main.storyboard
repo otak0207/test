@@ -143,16 +143,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ATRASC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXl-hN-S9f">
-                                <rect key="frame" x="27" y="59" width="320" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ATRASC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXl-hN-S9f">
+                                <rect key="frame" x="111" y="82" width="153.5" height="47"/>
                                 <fontDescription key="fontDescription" name="DFMaruGothic-SB-MP-RKSJ-H" family="DFPMaruGothic-SB" pointSize="40"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cL-oD-5El">
-                                <rect key="frame" x="111" y="147" width="153.5" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cL-oD-5El">
+                                <rect key="frame" x="111.5" y="147" width="152" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="クラブ一覧"/>
                                 <connections>
@@ -161,18 +159,19 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="yZb-ji-yMG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzs-XC-LDb">
-                                <rect key="frame" x="27" y="218" width="320" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzs-XC-LDb">
+                                <rect key="frame" x="126.5" y="218" width="122" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="ポイント"/>
                                 <connections>
                                     <segue destination="VyC-4B-MGm" kind="show" id="a99-rY-ctL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ul-1u-9fF">
-                                <rect key="frame" x="27" y="280" width="320" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ul-1u-9fF">
+                                <rect key="frame" x="66" y="280" width="243" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="HHz-D6-sw1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="参加申請フォーム"/>
                                 <connections>
@@ -181,6 +180,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3cL-oD-5El" firstAttribute="centerX" secondItem="NKw-EJ-9U5" secondAttribute="centerX" id="1hD-lD-tVL"/>
+                            <constraint firstItem="GXl-hN-S9f" firstAttribute="centerX" secondItem="NKw-EJ-9U5" secondAttribute="centerX" id="5dl-T6-tyU"/>
+                            <constraint firstItem="3cL-oD-5El" firstAttribute="top" secondItem="NKw-EJ-9U5" secondAttribute="top" constant="147" id="8ie-gM-od6"/>
+                            <constraint firstItem="7ul-1u-9fF" firstAttribute="top" secondItem="wzs-XC-LDb" secondAttribute="bottom" constant="14" id="GgV-3q-0Ia"/>
+                            <constraint firstItem="wzs-XC-LDb" firstAttribute="centerX" secondItem="NKw-EJ-9U5" secondAttribute="centerX" id="SyC-9H-ZWL"/>
+                            <constraint firstItem="7ul-1u-9fF" firstAttribute="centerX" secondItem="NKw-EJ-9U5" secondAttribute="centerX" id="dbK-lN-pet"/>
+                            <constraint firstItem="3cL-oD-5El" firstAttribute="top" secondItem="GXl-hN-S9f" secondAttribute="bottom" constant="18" id="l69-SK-0CG"/>
+                            <constraint firstItem="wzs-XC-LDb" firstAttribute="top" secondItem="3cL-oD-5El" secondAttribute="bottom" constant="23" id="tWc-Yo-3ET"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MfG-R8-rv4"/>
                     </view>
                     <navigationItem key="navigationItem" title="ホーム" id="cJ1-M3-nXE"/>
@@ -188,7 +197,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8e-zr-Igx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="TaR-b0-chS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-104.34782608695653" y="8.7053571428571423"/>
+            <point key="canvasLocation" x="-104.8" y="8.5457271364317844"/>
         </scene>
         <!--申請-->
         <scene sceneID="Yx7-Of-PkV">
