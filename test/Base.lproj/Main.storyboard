@@ -462,30 +462,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7U-xl-0Sg">
-                                <rect key="frame" x="27" y="178" width="320" height="109"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7U-xl-0Sg">
+                                <rect key="frame" x="27" y="178" width="321" height="109"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="クラブ紹介"/>
                                 <connections>
                                     <segue destination="nDn-gY-VsS" kind="show" id="hqc-EP-gm0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urj-Wa-v9z">
-                                <rect key="frame" x="27" y="295" width="320" height="109"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urj-Wa-v9z">
+                                <rect key="frame" x="27" y="295" width="321" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="atq-4s-8e6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="クラブ活動情報"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu8-bQ-v2v">
-                                <rect key="frame" x="4" y="71" width="367" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu8-bQ-v2v">
+                                <rect key="frame" x="10" y="71" width="355" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="crQ-Ny-Tve"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Urj-Wa-v9z" firstAttribute="top" secondItem="X7U-xl-0Sg" secondAttribute="bottom" constant="8" symbolic="YES" id="5Ru-Ob-hx8"/>
+                            <constraint firstItem="fu8-bQ-v2v" firstAttribute="centerX" secondItem="WMh-9S-Qxl" secondAttribute="centerX" id="CA3-cY-lu9"/>
+                            <constraint firstItem="Ob0-65-bus" firstAttribute="bottom" secondItem="Urj-Wa-v9z" secondAttribute="bottom" constant="263" id="KOD-Nr-sp0"/>
+                            <constraint firstItem="Urj-Wa-v9z" firstAttribute="leading" secondItem="X7U-xl-0Sg" secondAttribute="leading" id="Qlj-wg-RfR"/>
+                            <constraint firstItem="fu8-bQ-v2v" firstAttribute="top" secondItem="Ob0-65-bus" secondAttribute="top" constant="27" id="Us8-ul-EAd"/>
+                            <constraint firstItem="Ob0-65-bus" firstAttribute="trailing" secondItem="fu8-bQ-v2v" secondAttribute="trailing" constant="10" id="d5Y-Hc-OQ7"/>
+                            <constraint firstItem="X7U-xl-0Sg" firstAttribute="top" secondItem="fu8-bQ-v2v" secondAttribute="bottom" constant="25" id="erd-l6-Xbw"/>
+                            <constraint firstItem="fu8-bQ-v2v" firstAttribute="leading" secondItem="Ob0-65-bus" secondAttribute="leading" constant="10" id="gQN-N4-uwA"/>
+                            <constraint firstItem="Urj-Wa-v9z" firstAttribute="leading" secondItem="Ob0-65-bus" secondAttribute="leading" constant="27" id="jQl-U0-KTG"/>
+                            <constraint firstItem="fu8-bQ-v2v" firstAttribute="centerX" secondItem="X7U-xl-0Sg" secondAttribute="centerX" id="klV-e9-eQ4"/>
+                            <constraint firstItem="fu8-bQ-v2v" firstAttribute="centerX" secondItem="Urj-Wa-v9z" secondAttribute="centerX" id="rni-do-PTj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ob0-65-bus"/>
                     </view>
                     <navigationItem key="navigationItem" id="h58-1v-QVP"/>
