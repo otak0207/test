@@ -15,6 +15,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     var club = ClubData() //クラブ情報
     var selectName : String? //選択結果 クラブ名
     var selectUrl : String? //選択結果 クラブURL
+    var selectRow : Int? //選択結果 位置
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +46,14 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         //カーソル上の情報を取得
         selectName = club.data[indexPath.row].name
         selectUrl = club.data[indexPath.row].url
+        selectRow = indexPath.row
     }
     
     //セル選択時
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: false)
-        //tableView.scrollToRow(at: IndexPath(row: club.count - 1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
-            
+
         // 次の画面へ移動
         performSegue(withIdentifier: "next", sender: nil)
     }
@@ -63,5 +64,6 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
             
         clubSub.name = selectName
         clubSub.url = selectUrl
+        clubSub.targetRow = selectRow
     }
 }

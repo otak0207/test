@@ -18,30 +18,37 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var club = ClubData() //クラブ情報
     var clubPicker = UIPickerView()
     var point : String?
+    var selectClub : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //クラブ情報
         club.setClubInfo()
-        //picker情報
-        clubPicker.delegate = self
-        clubPicker.dataSource = self
-        
-        //text情報
-        clubList.inputView = clubPicker
+        clubCtl()
+        //連絡先情報
+        phoneCtl()
+        //コメントエリア情報
         commentCtl()
-        
-        //入力例
-        phoneNumber.placeholder = "ハイフン無し電話番号"
-        
-        //クリアボタン
-        clubList.clearButtonMode = UITextField.ViewMode.never //表示させない
-        phoneNumber.clearButtonMode = UITextField.ViewMode.whileEditing //編集時表示
-        //入力タイプ
-        phoneNumber.keyboardType = UIKeyboardType.phonePad
     }
     
+    func clubCtl(){
+        //初期情報確認
+        if selectClub == nil{
+            //picker情報付与
+            clubPicker.delegate = self
+            clubPicker.dataSource = self
+            clubList.inputView = clubPicker
+        }
+        else {
+            //引き継ぎ情報設定と編集不可
+            clubList.text = club.data[selectClub!].name
+            clubList.isEnabled = false
+        }
+
+        //クリアボタン
+        clubList.clearButtonMode = UITextField.ViewMode.never //表示させない
+    }
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -75,6 +82,31 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         default:
             break
         }
+    }
+    
+    //連絡先情報
+    func phoneCtl(){
+        // ツールバー生成
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        // スタイルを設定
+        toolBar.barStyle = UIBarStyle.default
+        // 画面幅に合わせてサイズを変更
+        toolBar.sizeToFit()
+        // 決定ボタンを右に配置するためのスペース?
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        // 決定ボタン
+        let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(FormController.commit))
+        // スペース、決定ボタンを右側に配置
+        toolBar.items = [spacer, commitButton]
+        // textViewのキーボードにツールバーを設定
+        phoneNumber.inputAccessoryView = toolBar
+        
+        //入力例
+        phoneNumber.placeholder = "ハイフン無し電話番号"
+        //入力タイプ
+        phoneNumber.keyboardType = UIKeyboardType.phonePad
+        //編集表示有無
+        phoneNumber.clearButtonMode = UITextField.ViewMode.whileEditing //編集時表示
     }
     
     //コメントエリア情報
