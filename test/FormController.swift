@@ -14,11 +14,15 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var pointSelect: UISegmentedControl!
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var comment: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var sendButton: UIButton!
     
     var club = ClubData() //クラブ情報
     var clubPicker = UIPickerView()
     var point : String?
     var selectClub : Int?
+    var screenHeight:CGFloat! // screenの高さ
+    let toolBarHeight = 40 //toolbarの高さ
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,10 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         phoneCtl()
         //コメントエリア情報
         commentCtl()
+        
+        // 画面サイズ取得
+        let screenSize: CGRect = UIScreen.main.bounds
+        screenHeight = screenSize.height
     }
     
     func clubCtl(){
@@ -67,7 +75,10 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //UIPickerViewのRowが選択された時の挙動
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         clubList.text = club.data[row].name
+        //PickerViewの消滅
         clubList.endEditing(true)
+        //レイアウトの初期化
+        viewDefault()
     }
     
     //UISegmentedControlが選択された時
@@ -87,7 +98,7 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //連絡先情報
     func phoneCtl(){
         // ツールバー生成
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: toolBarHeight))
         // スタイルを設定
         toolBar.barStyle = UIBarStyle.default
         // 画面幅に合わせてサイズを変更
@@ -112,7 +123,7 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //コメントエリア情報
     func commentCtl(){
         // ツールバー生成
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: toolBarHeight))
         // スタイルを設定
         toolBar.barStyle = UIBarStyle.default
         // 画面幅に合わせてサイズを変更
@@ -135,9 +146,12 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         comment.layer.cornerRadius = 5.0
         comment.layer.masksToBounds = true
     }
-    //入力キーボードの実行押下時(コメントエリア)
+    //入力キーボードの実行押下時
     @objc func commit() {
+        //キーボードクローズ
         self.view.endEditing(true)
+        //レイアウトの初期化
+        viewDefault()
     }
     
     //送信ボタン押下時
@@ -155,5 +169,58 @@ class FormController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         sendCheck.freeSpace = comment.text
     }
     
-    //以下キーボードのアクション(出現時に画面をスクロール)
+    //以下キーボードのアクション
+    //レイアウト初期化
+    func viewDefault() {
+        scrollView.contentOffset.y = 0
+    }
+    //出現チェック
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        NotificationCenter.default.addObserver(self,
+               selector: #selector(FormController.keyboardWillShow(_:)),
+               name: UIResponder.keyboardWillShowNotification,
+               object: nil)
+        NotificationCenter.default.addObserver(self,
+                selector: #selector(FormController.keyboardWillHide(_:)) ,
+                name: UIResponder.keyboardDidHideNotification,
+                object: nil)
+
+    }
+    //消滅チェック
+    override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           
+           NotificationCenter.default.removeObserver(self,
+                    name: UIResponder.keyboardWillShowNotification,
+                   object: self.view.window)
+           NotificationCenter.default.removeObserver(self,
+                    name: UIResponder.keyboardDidHideNotification,
+                   object: self.view.window)
+    }
+    
+    //キーボード出現時のアクション
+    @objc func keyboardWillShow(_ notification: Notification) {
+        //キーボード
+        let info = notification.userInfo!
+        let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+          
+        // 画面下部の項目の位置取得
+        let bottomld = sendButton.frame.origin.y + sendButton.frame.height
+        // 入力時に出現するキーボードの位置取得
+        let topKeyboard = screenHeight - (keyboardFrame.size.height + CGFloat(toolBarHeight))
+        // 重なり
+        let distance = bottomld - topKeyboard
+          
+        if distance >= 0 {
+            // scrollViewのコンテツを上へオフセット + 50.0(追加のオフセット)
+            scrollView.contentOffset.y = distance + 50
+        }
+    }
+    
+    //キーボード消滅時のアクション
+    @objc func keyboardWillHide(_ notification: Notification) {
+        viewDefault()
+    }
 }

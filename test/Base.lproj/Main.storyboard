@@ -232,18 +232,27 @@
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ポイント使用有無" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tv6-U3-5lY">
                                         <rect key="frame" x="28" y="171" width="173" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="0js-jE-NVH"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※使用しないを選択した場合、活動日に実費請求となります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0f-xs-lIw">
                                         <rect key="frame" x="28" y="194" width="284" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="VKs-dZ-JWe"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ERz-Vi-MHL">
                                         <rect key="frame" x="28" y="216" width="319" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="Lsu-Vi-lfE"/>
+                                        </constraints>
                                         <segments>
                                             <segment title="使用する"/>
                                             <segment title="使用しない"/>
@@ -254,6 +263,9 @@
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="連絡先" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voh-MF-yjL">
                                         <rect key="frame" x="28" y="266" width="122" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="Ta0-Lx-L9O"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -293,6 +305,9 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4CG-RH-Kfi">
                                         <rect key="frame" x="28" y="404" width="319" height="110"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="110" id="gC2-JE-gGK" userLabel="height = 200"/>
+                                        </constraints>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -308,6 +323,9 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtX-HS-Rd7">
                                         <rect key="frame" x="162" y="534" width="51" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="jVB-s6-AoC"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="送信"/>
                                         <connections>
@@ -334,7 +352,6 @@
                                     <constraint firstItem="pur-8F-wrz" firstAttribute="leading" secondItem="m38-n5-pTX" secondAttribute="leading" constant="30" id="Q6B-Oz-YtL"/>
                                     <constraint firstItem="lpO-EC-l72" firstAttribute="trailing" secondItem="voh-MF-yjL" secondAttribute="trailing" id="Rp6-6i-9XO"/>
                                     <constraint firstItem="voh-MF-yjL" firstAttribute="leading" secondItem="F7Q-fu-fBf" secondAttribute="leading" id="Rxm-ER-OLu"/>
-                                    <constraint firstItem="m38-n5-pTX" firstAttribute="bottom" secondItem="WtX-HS-Rd7" secondAttribute="bottom" constant="47" id="Tob-VX-ftJ"/>
                                     <constraint firstItem="lpO-EC-l72" firstAttribute="top" secondItem="4AA-l6-l6f" secondAttribute="bottom" constant="8" id="Vt2-3b-uT5"/>
                                     <constraint firstItem="m38-n5-pTX" firstAttribute="trailing" secondItem="Tv6-U3-5lY" secondAttribute="trailing" constant="174" id="WuD-sg-fs4"/>
                                     <constraint firstItem="Tv6-U3-5lY" firstAttribute="leading" secondItem="l0f-xs-lIw" secondAttribute="leading" id="Yhv-jf-2JH"/>
@@ -383,6 +400,8 @@
                         <outlet property="comment" destination="4CG-RH-Kfi" id="h5v-eV-uej"/>
                         <outlet property="phoneNumber" destination="C85-j3-wzJ" id="qab-na-PJe"/>
                         <outlet property="pointSelect" destination="ERz-Vi-MHL" id="kSH-om-ZOA"/>
+                        <outlet property="scrollView" destination="3BC-TD-0bB" id="QIt-ep-ynQ"/>
+                        <outlet property="sendButton" destination="WtX-HS-Rd7" id="fYM-lw-kIl"/>
                         <segue destination="f9c-Tl-H8J" kind="modal" identifier="sendCheck" id="J8J-L9-2cL"/>
                     </connections>
                 </viewController>
@@ -682,6 +701,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DQJ-F3-i2X"/>
+        <segue reference="uxQ-77-nMb"/>
     </inferredMetricsTieBreakers>
 </document>

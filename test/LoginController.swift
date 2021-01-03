@@ -23,7 +23,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
             
             //保存後初期化
             passwordInput.text = ""
-            
+            //キーボードの非表示
+            self.view.endEditing(true)
             //ホーム画面へ
             performSegue(withIdentifier: "goHome", sender: nil)
                 
@@ -66,7 +67,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     //入力キーボードの実行押下
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        //ログインボタンと同様の挙動呼び出し
         self.login(true)
         return true
     }
